@@ -7,6 +7,7 @@ import Entities.Flight;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 //TODO MAKE ENDPOINT TO LATEST METHOD
@@ -65,5 +66,22 @@ public class AirCompanyServiceImpl implements AirCompanyService {
     @Transactional
     public Airplane addNewAirplane(Airplane airplane) {
         return airCompanyDao.addNewAirplane(airplane);
+    }
+
+    @Override
+    @Transactional
+    public List<Flight> findAllActiveStatusFlights() throws ParseException {
+        return airCompanyDao.findAllActiveStatusFlights();
+    }
+
+    @Override
+    @Transactional
+    public Flight addNewFlight(Flight flight) {
+        return airCompanyDao.addNewFlight(flight);
+    }
+
+    @Override
+    public Flight changeFlightStatus(String status, Flight flight) {
+        return airCompanyDao.changeFlightStatus(status, flight);
     }
 }
