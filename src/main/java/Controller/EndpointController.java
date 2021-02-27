@@ -95,7 +95,7 @@ public class EndpointController {
         return airCompanyService.findAllActiveStatusFlights();
     }
 
-    @PostMapping("/addFlight")
+    @PostMapping("/addNewFlight")
     public Flight addNewFlight(@RequestBody Flight flight) {
         return airCompanyService.addNewFlight(flight);
     }

@@ -139,9 +139,11 @@ public class AirCompanyDaoImpl implements AirCompanyDao {
     public Flight changeFlightStatus(String status, Flight flight) {
         if (status.equals("DELAYED")) {
 
-        } else if (status.equals("ACTIVE")) {
+        }
 
-        } else if (status.equals("COMPLETED")) {
+        else if (status.equals("ACTIVE")) {
+
+            } else if (status.equals("COMPLETED")) {
 
         }
 
