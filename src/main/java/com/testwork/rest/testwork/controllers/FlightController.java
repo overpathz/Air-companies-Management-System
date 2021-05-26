@@ -57,13 +57,21 @@ public class FlightController {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         String strDate = dateFormat.format(date);
+        
+        final String DELAYED = "DELAYED";
+        final String ACTIVE = "ACTIVE";
+        final String COMPLETED = "COMPLETED";
 
-        if (status.equals("DELAYED")) {
-            flight.setDelayStartedAt(strDate);
-        } else if (status.equals("ACTIVE")) {
-            flight.setCreatedAt(strDate);
-        } else if (status.equals("COMPLETED")) {
-            flight.setEndedAt(strDate);
+        switch (status) {
+            case DELAYED:
+                flight.setDelayStartedAt(strDate);
+                break;
+            case ACTIVE:
+                flight.setCreatedAt(strDate);
+                break;
+            case COMPLETED:
+                flight.setEndedAt(strDate);
+                break;
         }
 
         return flightService.save(flight);
